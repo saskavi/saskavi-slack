@@ -45,14 +45,14 @@ var sendProcsInfo = function() {
 		};
 
 		var s = list.map(function(v) {
-			return "*" + v.name + "*" + ": " + v.status + ", mem: " +
+			return v.name + ": " + v.status + ", mem: " +
 				mem(v.memory) + ", cpu: " + v.cpu + "%";
-		}).join(", ");
+		}).join("\n");
 
 		if (s.length === 0)
-			s = "No processes are available at this time";
+			s = "No processes";
 
-		postMessage({text: s, username: "SASSY BOT", icon_emoji: ":rage2:"}, function(){});
+		postMessage({text: "```" + s + "```", username: "SASSY BOT", icon_emoji: ":rage2:"}, function(){});
 	});
 };
 
