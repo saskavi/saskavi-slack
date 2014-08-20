@@ -1,0 +1,25 @@
+{
+  "name": "saskavi-slack",
+  "version": "0.0.1",
+  "description": "Slack commands/web-hooks for saskavi",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/saskavi/saskavi-slack.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/saskavi/saskavi-slack/issues"
+  },
+  "homepage": "https://github.com/saskavi/saskavi-slack",
+  "dependencies": {
+    "ferb": "0.0.2",
+    "debug": "~1.0.4",
+    "request": "~2.40.0",
+    "pm2": "~0.9.6"
+  }
+}
