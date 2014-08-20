@@ -49,6 +49,9 @@ var sendProcsInfo = function() {
 				mem(v.memory) + ", cpu: " + v.cpu + "%" + "```";
 		}).join(", ");
 
+		if (s.length === 0)
+			s = "```No processes```";
+
 		postMessage({text: s, username: "SASSY BOT", icon_emoji: ":rage2:"}, function(){});
 	});
 };
