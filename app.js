@@ -36,6 +36,19 @@ var postMessage = function(obj, cb) {
 	});
 };
 
+var repeat = function(s, t) {
+	var r = "";
+	for (var i = 0 ; i < t ; i ++) {
+		r += s;
+	}
+
+	return r;
+};
+
+var pad = function(s, m) {
+	return s + repeat(" ", m - s.length);
+};
+
 var sendProcsInfo = function() {
 	getProcessList(function(err, list) {
 		if (err) return;
@@ -44,8 +57,16 @@ var sendProcsInfo = function() {
 			return (v / 1000000.0).toFixed(2) + "MB";
 		};
 
+		var longest = list.reduce(function(l, i) {
+			if (i.name.length > l)
+				return i.name.length;
+			return l;
+		}, 0);
+
+		var lpad = longest + 2;
+
 		var s = list.map(function(v) {
-			return v.name + ": " + v.status + ", mem: " +
+			return pad(v.name, lpad) + ": " + v.status + ", mem: " +
 				mem(v.memory) + ", cpu: " + v.cpu + "%";
 		}).join("\n");
 
